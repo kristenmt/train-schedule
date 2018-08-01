@@ -63,8 +63,10 @@ console.log(destination);
 console.log(firstTrainTime);
 console.log(frequency);
 
+var firstTime = "19:30";
+
 //calculating first time (minus 1 year to make sure it comes before current time)
-var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
+var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
 console.log(firstTimeConverted);
 
 //current time
@@ -91,8 +93,9 @@ var newRow = $("<tr>").append(
     $("<td>").text(destination),
     $("<td>").text(frequency),
     $("<td>").text(firstTrainTime),
-    $("<td>").text(minutesUntil),
+    $("<td>").text(minutesUntil)
 );
 $("#train-table > tbody").append(newRow);
-})
+console.log("new row added");
+});
 })

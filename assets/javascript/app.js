@@ -62,10 +62,37 @@ console.log(trainName);
 console.log(destination);
 console.log(firstTrainTime);
 console.log(frequency);
+
+//calculating first time (minus 1 year to make sure it comes before current time)
+var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
+console.log(firstTimeConverted);
+
+//current time
+var currentTime = moment();
+console.log("current time is: " + moment(currentTime).format("hh:mm"));
+
+//difference between times
+var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
+console.log("difference in time is: " + timeDiff);
+
+//time apart
+var tRemainder = timeDiff % frequency;
+console.log(tRemainder);
+
+//minutes until the next train
+var minutesUntil = frequency - tRemainder;
+console.log("minutes until train is: " + minutesUntil);
+// next train
+var nextTrain = moment().add(minutesUntil, "minutes");
+console.log("arrival time is: " + moment(nextTrain).format("hh:mm"));
+//add new train to html
+var newRow = $("<tr>").append(
+    $("<td>").text(trainName),
+    $("<td>").text(destination),
+    $("<td>").text(frequency),
+    $("<td>").text(firstTrainTime),
+    $("<td>").text(minutesUntil),
+);
+$("#train-table > tbody").append(newRow);
 })
-//calculate the next arrival time from the current time and the frequency
-
-//using moment.js formatting to set the next arrival time
-
-//calculate how many minutes until the train comes using the next arrival time and current time
 })

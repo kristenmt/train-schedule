@@ -20,7 +20,7 @@ $("#add-train-btn").on("click", function(event){
 //take user's input
 var trainName = $("#train-name-input").val().trim();
 var destination = $("#destination-input").val().trim();
-var firstTrainTime = $("#first-time-input").val().trim();
+var firstTrainTime = moment($("#first-time-input").val().trim(), "HH:mm").format("X");
 var frequency = $("#frequency-input").val().trim();
 
 //create a local "temporary" object to hold train info
@@ -40,8 +40,28 @@ console.log(newTrain.time);
 console.log(newTrain.freq);
 
 alert("New train is added");
-//retrieve trains from database
+//clear text boxes after input and database update
+$("#train-name-input").val("");
+$("#destination-input").val("");
+$("#first-time-input").val("");
+$("#frequency-input").val("");
+});
 
+//create a firebase event to add trains to database and a row in html
+database.ref().on("child_added", function(childSnapshot){
+    console.log(childSnapshot.val());
+
+//store everything into a variable
+var trainName = childSnapshot.val().name;
+var destination = childSnapshot.val().place;
+var firstTrainTime = childSnapshot.val().time;
+var frequency = childSnapshot.val().freq; 
+
+//log train info
+console.log(trainName);
+console.log(destination);
+console.log(firstTrainTime);
+console.log(frequency);
 })
 //calculate the next arrival time from the current time and the frequency
 

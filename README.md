@@ -12,8 +12,3 @@
     <li>moment.js</li>
     <li>Firebase</li>
 </ul>
-
-<h3>App images</h3>
-![alt text](assets/images/app-image-1.png)
-<br>
-![alt text](assets/images/app-image-2.png)

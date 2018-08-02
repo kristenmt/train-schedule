@@ -1,12 +1,13 @@
 .jumbotron {
-    background-image: url(../images/train-image2.jpg);
-    color: white;
+    background-image: url(../images/train2a.jpg);
+    color: black;
 }
 .jumbotron h1{
     font-family: 'Alfa Slab One', cursive;
 }
 .jumbotron p{
     font-family: 'Sanchez', serif;
+    font-size: 1.2em;
 }
 body{
     background-image: url(../images/connectwork.png);

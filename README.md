@@ -14,6 +14,6 @@
 </ul>
 
 <h3>App images</h3>
-![alt text](assets/images/app-image-1 "App schedule image")
+![alt text](assets/images/app-image-1.png)
 <br>
-![alt text](assets/images/app-image-2 "App form image")
+![alt text](assets/images/app-image-2.png)

@@ -20,7 +20,7 @@ $("#add-train-btn").on("click", function(event){
 //take user's input
 var trainName = $("#train-name-input").val().trim();
 var destination = $("#destination-input").val().trim();
-var firstTrainTime = moment($("#first-time-input").val().trim(), "HH:mm").format("X");
+var firstTrainTime = $("#first-time-input").val().trim();
 var frequency = $("#frequency-input").val().trim();
 
 //create a local "temporary" object to hold train info
@@ -83,7 +83,7 @@ console.log(tRemainder);
 var minutesUntil = frequency - tRemainder;
 console.log("minutes until train is: " + minutesUntil);
 // next train
-var nextTrain = moment().add(minutesUntil, " minutes").format("HH:mm");
+var nextTrain = moment().add(minutesUntil, "minutes").format("HH:mm");
 console.log("arrival time is: " + moment(nextTrain));
 //add new train to html
 var newRow = $("<tr>").append(

@@ -1,0 +1,23 @@
+.jumbotron {
+    background-image: url(../images/train-image2.jpg);
+    color: white;
+}
+.jumbotron h1{
+    font-family: 'Alfa Slab One', cursive;
+}
+.jumbotron p{
+    font-family: 'Sanchez', serif;
+}
+body{
+    background-image: url(../images/connectwork.png);
+
+    font-family: 'News Cycle', sans-serif;
+}
+h3{
+    text-align: center;
+    font-family: 'Sanchez', serif;
+}
+label, th{
+    font-style: italic;
+    font-weight: 900;
+}

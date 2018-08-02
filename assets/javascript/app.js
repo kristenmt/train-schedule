@@ -55,7 +55,7 @@ database.ref().on("child_added", function(childSnapshot){
 var trainName = childSnapshot.val().name;
 var destination = childSnapshot.val().place;
 var firstTrainTime = childSnapshot.val().time;
-var frequency = childSnapshot.val().freq; 
+var frequency = parseInt(childSnapshot.val().freq); 
 
 //log train info
 console.log(trainName);
@@ -63,15 +63,13 @@ console.log(destination);
 console.log(firstTrainTime);
 console.log(frequency);
 
-var firstTime = "19:30";
-
 //calculating first time (minus 1 year to make sure it comes before current time)
-var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
 console.log(firstTimeConverted);
 
 //current time
 var currentTime = moment();
-console.log("current time is: " + moment(currentTime).format("hh:mm"));
+console.log("current time is: " + moment(currentTime).format("HH:mm"));
 
 //difference between times
 var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
@@ -85,15 +83,15 @@ console.log(tRemainder);
 var minutesUntil = frequency - tRemainder;
 console.log("minutes until train is: " + minutesUntil);
 // next train
-var nextTrain = moment().add(minutesUntil, "minutes");
-console.log("arrival time is: " + moment(nextTrain).format("hh:mm"));
+var nextTrain = moment().add(minutesUntil, " minutes").format("HH:mm");
+console.log("arrival time is: " + moment(nextTrain));
 //add new train to html
 var newRow = $("<tr>").append(
     $("<td>").text(trainName),
     $("<td>").text(destination),
-    $("<td>").text(frequency),
-    $("<td>").text(firstTrainTime),
-    $("<td>").text(minutesUntil)
+    $("<td>").text(frequency + " minutes"),
+    $("<td>").text(nextTrain),
+    $("<td>").text(minutesUntil + " minutes")
 );
 $("#train-table > tbody").append(newRow);
 console.log("new row added");
